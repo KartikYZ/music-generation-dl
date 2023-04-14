@@ -1,0 +1,3 @@
+[submodule "music-generation/musegan"]
+	path = music-generation/musegan
+	url = https://github.com/salu133445/musegan.git
