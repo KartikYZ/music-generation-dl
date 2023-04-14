@@ -1,3 +1,6 @@
 [submodule "music-generation/musegan"]
 	path = music-generation/musegan
 	url = https://github.com/salu133445/musegan.git
+[submodule "music-generation/MusicTransformer-Pytorch"]
+	path = music-generation/MusicTransformer-Pytorch
+	url = https://github.com/gwinndr/MusicTransformer-Pytorch.git
