@@ -4,3 +4,6 @@
 [submodule "music-generation/MusicTransformer-Pytorch"]
 	path = music-generation/MusicTransformer-Pytorch
 	url = https://github.com/gwinndr/MusicTransformer-Pytorch.git
+[submodule "audio-compare"]
+	path = audio-compare
+	url = https://github.com/kdave/audio-compare.git
