@@ -7,3 +7,9 @@
 [submodule "audio-compare"]
 	path = audio-compare
 	url = https://github.com/kdave/audio-compare.git
+[submodule "demucs"]
+	path = demucs
+	url = https://github.com/facebookresearch/demucs.git
+[submodule "audio-cross-correlation"]
+	path = audio-cross-correlation
+	url = https://github.com/otrenav/audio-cross-correlation.git
