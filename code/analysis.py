@@ -86,9 +86,11 @@ Author
 import sys
 import numpy
 import scipy.signal
-import scikits.audiolab
+# import scikits.audiolab
 import matplotlib
 import matplotlib.pyplot
+
+import librosa
 
 matplotlib.use('agg')
 
@@ -98,8 +100,10 @@ class Analysis(object):
     def __init__(self, audio_one, audio_two):
         self.audio_input_file_one = audio_one
         self.audio_input_file_two = audio_two
-        self._read_audio_data('one')
-        self._read_audio_data('two')
+        # self._read_audio_data('one')
+        # self._read_audio_data('two')
+        self.audio_input_data_one, self.audio_input_sample_rate_one = librosa.load(self.audio_input_file_one)
+        self.audio_input_data_two, self.audio_input_sample_rate_two = librosa.load(self.audio_input_file_two)
 
     def correlation(self):
         self.correlation = scipy.signal.fftconvolve(
@@ -125,7 +129,8 @@ class Analysis(object):
             spaces['three'], self.correlation, 'black'
         )
         figure.tight_layout()
-        figure.savefig(self._get_png_file_output())
+        # figure.savefig(self._get_png_file_output())
+        figure.savefig("pe.png")
 
     def print_data(self, which_data):
         """Print data
@@ -179,7 +184,8 @@ class Analysis(object):
     def _read_audio_data(self, which_data):
         audio_file = getattr(self, "audio_input_file_{}".format(which_data))
         try:
-            sound_file = scikits.audiolab.Sndfile(audio_file, 'r')
+            # sound_file = scikits.audiolab.Sndfile(audio_file, 'r')
+            sound_file, _ = librosa.load(audio_file)
         except Exception as e:
             raise ValueError(
                 "Could not open {}.\n".format(audio_file) +
@@ -291,8 +297,8 @@ def main(argv):
 
     analysis = Analysis(audio_file_input_one, audio_file_input_two)
 
-    analysis.print_data('one')
-    analysis.print_data('two')
+    # analysis.print_data('one')
+    # analysis.print_data('two')
     analysis.correlation()
     analysis.graph()
     analysis.print_results()
